@@ -73,8 +73,8 @@ class About extends Component{
             <li className="timeline-inverted">
               <div className="timeline-image">
                 <h4>Be Part
-                  <br>Of Our
-                  <br>Story!</h4>
+                  <br/>Of Our
+                  <br/>Story!</h4>
               </div>
             </li>
           </ul>
