@@ -11,6 +11,10 @@ class  App extends Component {
         path="/"
         Component={Home}
         />
+      <Route
+        path="/about"
+        Component={About}
+        />
       </PageWrapper>
       </Router>
   );
