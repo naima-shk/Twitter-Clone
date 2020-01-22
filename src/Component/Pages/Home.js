@@ -4,7 +4,7 @@ class Home extends Component {
     render(){
     return (
         <div>
-        <header className="masthead">
+        <header className="masthead" alt="public\img\hd-background.png" >
           <div className="container">
            <div className="intro-text">
             <div className="intro-lead-in">Welcome To Our Studio!</div>
