@@ -20,6 +20,14 @@ class  App extends Component {
         path="/about"
         Component={About}
         />
+       <Route 
+         path="a"
+         render={()=> {
+           return(
+             <h1>Hello nimi </h1>
+           );
+           }}
+         />
       </PageWrapper>
       </Router>
   );
