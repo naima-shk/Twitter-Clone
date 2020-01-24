@@ -1,10 +1,10 @@
 import React,{Component} from 'react'
-
+import image from './img/hd'
 class Home extends Component {
     render(){
     return (
         <div>
-        <header className="masthead" alt="public\img\hd-background.png" >
+        <header className="masthead" alt="img\hd-background.png" >
           <div className="container">
            <div className="intro-text">
             <div className="intro-lead-in">Welcome To Our Studio!</div>
