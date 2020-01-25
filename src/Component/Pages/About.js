@@ -82,9 +82,7 @@ class About extends Component{
       </div>
     </div>
   </section>
-
-      
-        );
+      );
     }
 }
 

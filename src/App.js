@@ -9,27 +9,27 @@ import About from './Component/Pages/About';
 class  App extends Component {
   render(){
   return (
-    <Router>
-    <PageWrapper>
+      <Router>
+      <PageWrapper>
       <Route
-      exact={true}
+        exact={true}
         path="/"
         Component={Home}
         />
-      <Route
-        path="/about"
-        Component={About}
-        />
-       <Route 
-         path="a"
-         render={()=> {
+         <Route
+          path="/about"
+          Component={About}
+         />
+        <Route 
+          path="a"
+          render={()=> {
            return(
              <h1>Hello nimi </h1>
            );
            }}
          />
-      </PageWrapper>
-      </Router>
+        </PageWrapper>
+        </Router>
   );
 }
   }
