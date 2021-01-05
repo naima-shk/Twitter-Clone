@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.9",
@@ -21,8 +22,9 @@
   },
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
-    },
+    "server": "nodemon app.js",
+    "server:debug": "nodemon --inspect app.js"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
