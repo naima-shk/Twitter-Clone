@@ -2,10 +2,10 @@ const express = require ('express');
 const app= express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
-const users = require("./routes/api/users");
-const tweets = require("./routes/api/tweets");
-const bodyParser = require('body-parser');
-
+//const User = require("./routes/api/user");
+//const tweets = require("./routes/api/tweets");
+//const bodyParser = require('body-parser');
+const users= require('./Models/users');
 
 mongoose
 .connect(db, { useNewUrlParser: true,useUnifiedTopology: true })
@@ -13,14 +13,19 @@ mongoose
 .catch(err => console.log(err));
 
 app.get('/', (req,res) => res.send('Hello world'));
-
+  const users = new users({
+    handle: 'john',
+    email: "john@john.john",
+    password: "john1234"
+})
+  users.save()
 //middleware
-app.use("/api/users", users);
-app.use("/api/tweets", tweets);
+//app.use("/api/User", User);
+//app.use("/api/tweets", tweets);
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
