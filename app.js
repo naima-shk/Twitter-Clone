@@ -8,16 +8,16 @@ const db = require('./config/keys').mongoURI;
 const users= require('./Models/users');
 
 mongoose
-.connect(db, { useNewUrlParser: true,useUnifiedTopology: true })
+.connect(db, { useNewUrlParser: true })
 .then(() => console.log("Connected to MongoDB successfully"))
 .catch(err => console.log(err));
 
 app.get('/', (req,res) => res.send('Hello world'));
-  const users = new users({
-    handle: 'john',
-    email: "john@john.john",
-    password: "john1234"
-})
+ // const users = new users({
+  //  handle: 'john',
+   // email: "john@john.john",
+   // password: "john1234"
+//})
   users.save()
 //middleware
 //app.use("/api/User", User);
