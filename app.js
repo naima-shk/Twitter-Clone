@@ -2,10 +2,10 @@ const express = require ('express');
 const app= express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
-//const User = require("./routes/api/user");
+const User = require("./routes/Api/User");
 //const tweets = require("./routes/api/tweets");
 const bodyParser = require('body-parser');
-const users= require('../../Models/users');
+const users= require('./Models/users');
 
 mongoose
 .connect(db, { useNewUrlParser: true })
@@ -20,7 +20,7 @@ app.get('/', (req,res) => res.send('Hello world'));
 })
  user.save()
 //middleware
-//app.use("/api/User", User);
+app.use("/api/User", User);
 //app.use("/api/tweets", tweets);
 
 

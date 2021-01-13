@@ -6,6 +6,8 @@ router.get('/test', (req,res) =>{
     res.json({msg:"This is a user route"});
 });
 
+ // Check to make sure nobody has already registered with a duplicate email
+
 router.post('/register', (req,res)=>{
   User.findOne({email:req.body.email})
     .then(user =>{
