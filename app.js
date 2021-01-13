@@ -20,7 +20,7 @@ app.get('/', (req,res) => res.send('Hello world'));
 })
  user.save()
 //middleware
-app.use("/api/User", User);
+app.use("/Api/User", User);
 //app.use("/api/tweets", tweets);
 
 
