@@ -1,6 +1,6 @@
 const express = require('express');
 const router= express.Router();
-const User = require('../../Models/users');
+const users = require('../../Models/users');
 
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a user route"});
@@ -8,7 +8,7 @@ router.get('/test', (req,res) =>{
 
  // Check to make sure nobody has already registered with a duplicate email
 router.post('/register', (req,res)=>{
-  User.findOne({email:req.body.email})
+  users.findOne({email:req.body.email})
     .then(user =>{
         if(user){
      // Throw a 400 error if the email address already exists
@@ -19,7 +19,7 @@ router.post('/register', (req,res)=>{
                 email:req.body.email,
                 password:req.body.password
             })
-            newUser.save().then(user => res.send(user)).catch(err => res.send(err));
+            newUser.save().then(users => res.send(users)).catch(err => res.send(err)); //take this for testing
         }
 })
 });
