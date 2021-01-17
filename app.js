@@ -18,7 +18,7 @@ app.get('/', (req,res) => {
     email: "john@john.john",
     password: "john1234"
 })*/
- user.save()
+ //user.save()
  res.send('Hello world');
 });
 //middleware
