@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const app= express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
-const users = require("./routes/Api/users");
+const users = require("./routes/api/users");
 //const tweets = require("./routes/api/tweets");
 const User= require('./Models/User');
 
@@ -12,22 +12,24 @@ mongoose
 .then(() => console.log("Connected to MongoDB successfully"))
 .catch(err => console.log(err));
 
+app.use(bodyParser.urlencoded({ 
+    extended: false }));
+    
+app.use(bodyParser.json());
+
 app.get('/', (req,res) => {
- /*const user = new User({
+ const user = new User({
     handle: 'john',
     email: "john@john.john",
     password: "john1234"
-})*/
- //user.save()
+})
+ user.save()
  res.send('Hello world');
 });
 //middleware
-app.use("/Api/users", users);
+app.use("/api/users", users);
 //app.use("/api/tweets", tweets);
 
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json())
 
 
 
