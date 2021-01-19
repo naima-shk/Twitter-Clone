@@ -2,6 +2,7 @@ const express = require('express');
 const router= express.Router();
 const User= require('../../Models/User');
 const bcrypt = require('bcryptjs');
+const keys = require('../../config/keys');
 
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a user route"});
@@ -33,6 +34,27 @@ router.post('/register', (req, res) => {
           })
         }
       })
+  })
+
+  router.post('/login', (req,res) =>{
+    const email= req.body.email;
+    const password =req.body.password;
+
+    User.findOne({email})
+    .then(user =>{
+      if(!user){
+        return res.status(400).json({email:"This email does not exist."});
+      }
+
+      bcrypt.compare(password, user.password)
+      .then(isMatch =>{
+        if(isMatch){
+          res.json({msg: "success!"});
+        } else{
+          return res.status(400).json({password: "Incorrect password"});
+        }
+      })
+    })
   })
 
 module.exports= router;
