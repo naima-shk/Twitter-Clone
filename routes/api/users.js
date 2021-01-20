@@ -3,7 +3,7 @@ const router= express.Router();
 const User= require('../../Models/User');
 const bcrypt = require('bcryptjs');
 const keys = require('../../config/keys');
-const { ExtractJwt } = require('passport-jwt');
+const jwt  = require('jsonwebtoken');
 
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a user route"});
