@@ -15,13 +15,13 @@ mongoose
 app.use(bodyParser.urlencoded({ 
     extended: false }));
     
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 
 app.get('/', (req,res) => {
  const user = new User({
-    handle: 'john',
-    email: "john@john.john",
-    password: "john1234"
+    handle: user.handle,
+    email: user.email,
+    password: user.password
 })
  user.save()
  res.send('Hello world');

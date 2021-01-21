@@ -4,17 +4,17 @@ const User= require('../../Models/User');
 const bcrypt = require('bcryptjs');
 const keys = require('../../config/keys');
 const jwt  = require('jsonwebtoken');
-const passport =require ('passport');
+//const passport =require ('passport');
 
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a user route"});
 });
 
-router.get("/current", passport.authenticate ("jwt",{session: false}),
+/*router.get("/current", passport.authenticate ("jwt",{session: false}),
  (res,req) =>{
    res.send(req.user);
  }
-)
+) */
 
 router.post('/register', (req, res) => {
     // Check to make sure nobody has already registered with a duplicate email
