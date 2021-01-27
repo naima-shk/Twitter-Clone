@@ -37,6 +37,6 @@ module.exports =function(data){
     }
     return {
         errors,
-        inValid:  Object.keys(errors).length === 0
+        isValid:  Object.keys(errors).length === 0
     }
 }
