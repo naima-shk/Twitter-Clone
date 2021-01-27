@@ -18,12 +18,12 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json()); 
 
 app.get('/', (req,res) => {
-    const newUser = new User({
+   /*const newUser = new User({
         handle: 'nimi',
         email: 'nimi@nimi.nim',
         password: 'nim123'
       });
-      user.save();
+      user.save(); */
 res.send('Hello world');
 });
 //middleware
