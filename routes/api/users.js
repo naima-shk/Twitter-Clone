@@ -6,7 +6,7 @@ const keys = require('../../config/keys');
 const jwt  = require('jsonwebtoken');
 const passport =require ('passport');
 const validateRegisterInput =require('../../validation/register');
-//const ValidateLoginInput = require ('../../validation/login');
+const ValidateLoginInput = require ('../../validation/login');
 
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a user route"});
@@ -20,7 +20,7 @@ router.get("/current", passport.authenticate ("jwt",{session: false}),
 
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
-  console.log(req.body);
+  //console.log(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
