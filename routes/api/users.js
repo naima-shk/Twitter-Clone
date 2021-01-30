@@ -39,7 +39,17 @@ router.post('/register', (req, res) => {
         })
       }
     })
+  
+      bcrypt.genSalt(10, (err, salt) =>{
+        bcrypt.hash(newUser.password, salt, (err,hash)=>{
+       if(err) throw err;
+       newUser.password =hash;
+       newUser.save()
+          .then((user) => res.json(user))
+          .catch(err => comsole.log(err))
+      })
 })
+
 
   router.post('/login', (req,res) =>{
     const email= req.body.email;
@@ -73,5 +83,6 @@ router.post('/register', (req, res) => {
       })
     })
   })
+})
 
 module.exports= router;
