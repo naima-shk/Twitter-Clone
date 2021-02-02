@@ -18,13 +18,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json()); 
 
 app.get('/', (req,res) => {
-   /*const newUser = new User({
-        handle: 'nimi',
-        email: 'nimi@nimi.nim',
-        password: 'nim123'
+   const newUser = new User({
+        handle: req.body.handle ,
+        email: req.body.email,
+        password: req.body.password
       });
-      user.save(); */
-res.send('Hello world');
+      user.save(); 
+res.send('done');
 });
 //middleware
 app.use("/api/users", users);
