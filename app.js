@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
     
 app.use(bodyParser.json()); 
 
-app.get('/', (req,res) => {
+/*app.get('/', (req,res) => {
    const newUser = new User({
         handle: req.body.handle ,
         email: req.body.email,
@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
       });
       user.save(); 
 res.send('done');
-});
+});*/
 //middleware
 app.use("/api/users", users);
 //app.use("/api/tweets", tweets);

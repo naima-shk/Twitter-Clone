@@ -29,13 +29,22 @@ router.post('/register', (req, res) => {
     .then(user => {
       if (user) {
         // Use the validations to send the error
-        errors.email = 'Email already exists';
-        return res.status(400).json(errors);
+        //errors.email = 'Email already exists';
+        return res.status(400).json({email:"A user is already registered with this email"});
       } else {
         const newUser = new User({
           name: req.body.name,
           email: req.body.email,
           password: req.body.password
+        })
+        bcrypt.genSalt(10,(err,salt) =>{
+          bcrypt.hash(newUser.password,salt, (err,hash) =>{
+            if(err) throw err;
+            newUser.password =hash;
+            newUser.save()
+            .then((user) => res.json(user))
+            .catch(err => comsole.log(err));
+          })
         })
       }
     })
