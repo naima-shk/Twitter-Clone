@@ -20,7 +20,7 @@ router.get("/current", passport.authenticate ("jwt",{session: false}),
 
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
-  //console.log(req.body);
+  
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -33,7 +33,7 @@ router.post('/register', (req, res) => {
         return res.status(400).json({email:"A user is already registered with this email"});
       } else {
         const newUser = new User({
-          name: req.body.name,
+          handle: req.body.handle,
           email: req.body.email,
           password: req.body.password
         })
@@ -43,7 +43,7 @@ router.post('/register', (req, res) => {
             newUser.password =hash;
             newUser.save()
             .then((user) => res.json(user))
-            .catch(err => comsole.log(err));
+            .catch(err => console.log(err));
           })
         })
       }
