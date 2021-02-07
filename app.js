@@ -4,9 +4,9 @@ const app= express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
-//const tweets = require("./routes/api/tweets");
+const tweet = require("./routes/api/tweet");
 const User= require('./Models/User');
-
+const Tweet= require('./Models/Tweet');
 mongoose
 .connect(db, { useNewUrlParser: true ,useUnifiedTopology: true})
 .then(() => console.log("Connected to MongoDB successfully"))
@@ -28,9 +28,7 @@ res.send('done');
 });*/
 //middleware
 app.use("/api/users", users);
-//app.use("/api/tweets", tweets);
-
-
+app.use("/api/tweet", tweet);
 
 
 const port = process.env.PORT || 5000;

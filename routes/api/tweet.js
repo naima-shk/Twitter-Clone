@@ -7,6 +7,11 @@ const Tweet =require("../../Models/Tweet");
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a tweet route"});
 });
+router.get("/", passport.authenticate ("jwt",{session: false}),
+ (res,req) =>{
+   res.send(req.tweet);
+ }
+) 
 
 router.post("/",
 passport.authenticate('jwt',{session:false}),
@@ -20,8 +25,6 @@ passport.authenticate('jwt',{session:false}),
       text:req.body.text
     });
 
-    newTweet
-    .save()
-    .then(tweet => res.json(tweet));
+    newTweet.save().then(tweet => res.json(tweet));
 })
 module.exports=router;
