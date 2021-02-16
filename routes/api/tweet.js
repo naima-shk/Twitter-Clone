@@ -23,7 +23,7 @@ router.post("/",
     }
     const newTweet = new Tweet ({
       user:req.user.id,
-      text:req.body.text
+      text:req.body.texta
     });
 
     newTweet.save().then(tweet => res.json(tweet));
