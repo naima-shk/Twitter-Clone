@@ -13,7 +13,7 @@ router.get('/test', (req,res) =>{
 });
 
 router.get("/current", passport.authenticate ("jwt",{session: false}),
- (res,req) =>{
+ (req,res) =>{
    res.send(req.user);
  }
 ) 

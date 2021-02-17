@@ -8,15 +8,15 @@ const jwt  = require('jsonwebtoken');
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a tweet route"});
 });
-router.get("/current", passport.authenticate ("jwt",{session: false}),
- (res,req) =>{
+{/*router.get("/current", passport.authenticate ("jwt",{session: false}),
+ (req,res) =>{
    res.send(req.tweet);
  }
-) 
+) */}
 
 router.post("/",
-//passport.authenticate('jwt',{session:false}),
-(res,req) =>{
+passport.authenticate('jwt',{session:false}),
+(req,res) =>{
     const {isValid, errors} = validateTweetInput(req.body);
     if(!isValid){
         return res.status(400).json(errors);
