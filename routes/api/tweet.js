@@ -9,7 +9,7 @@ router.get('/test', (req,res) =>{
     res.json({msg:"This is a tweet route"});
 });
 {/*router.get("/current", passport.authenticate ("jwt",{session: false}),
- (req,res) =>{
+ (res,req) =>{
    res.send(req.tweet);
  }
 ) */}
