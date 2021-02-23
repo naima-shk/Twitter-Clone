@@ -8,11 +8,11 @@ const jwt  = require('jsonwebtoken');
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a tweet route"});
 });
-{/*router.get("/current", passport.authenticate ("jwt",{session: false}),
+router.get("/current", passport.authenticate ("jwt",{session: false}),
  (res,req) =>{
    res.send(req.tweet);
  }
-) */}
+) 
 
 router.post("/",
 passport.authenticate('jwt',{session:false}),
