@@ -1,9 +1,11 @@
-const JwtStragety = require ('passport-jwt').JwtStragety;
-const ExtractJwt = require ('passport-jwt').ExtractJwt;
+const JwtStragety =passportJWT.JwtStragety;
+const ExtractJwt = passportJWT.ExtractJwt;
 const mongoose = require ('mongoose');
 const User =mongoose.model('users');
 const Tweet =mongoose.model('tweet');
 const keys= require('./keys');
+//const  passport = require("passport");
+const passportJWT = require("passport-jwt");
 
 const options ={};
 options.jwtFromRequest= ExtractJwt.fromAuthHeaderAsBearerToken();
