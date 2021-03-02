@@ -5,7 +5,7 @@ const User =mongoose.model('users');
 const Tweet =mongoose.model('tweet');
 const keys= require('./keys');
 //const  passport = require("passport");
-const passportJWT = require("passport-jwt");
+const passport = require("passport");
 
 const options ={};
 options.jwtFromRequest= ExtractJwt.fromAuthHeaderAsBearerToken();
