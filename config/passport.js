@@ -1,5 +1,5 @@
-const JwtStragety =passportJWT.JwtStragety;
-const ExtractJwt = passportJWT.ExtractJwt;
+const JwtStragety =passport.JwtStragety;
+const ExtractJwt = passport.ExtractJwt;
 const mongoose = require ('mongoose');
 const User =mongoose.model('users');
 const Tweet =mongoose.model('tweet');
