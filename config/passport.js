@@ -1,19 +1,17 @@
-const JwtStragety =passport.JwtStragety;
-const ExtractJwt = passport.ExtractJwt;
-const mongoose = require ('mongoose');
-const User =mongoose.model('users');
-const Tweet =mongoose.model('tweet');
-const keys= require('./keys');
-//const  passport = require("passport");
-const passport = require("passport");
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
+const Tweet = mongoose.model('Tweet');
+const keys = require('../config/keys');
 
-const options ={};
-options.jwtFromRequest= ExtractJwt.fromAuthHeaderAsBearerToken();
-options.secretOrkey = keys.secretOrkey;
+const options = {};
+options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+options.secretOrKey = keys.secretOrKey;
 
-module.exports = passport =>{
-    passport.use(new JwtStragety (options, (jwt_payload,done) =>{
-        console.log(jwt_payload);
-        done();
-    }) )
-}
+module.exports = passport => {
+  passport.use(new JwtStrategy(options, (jwt_payload, done) => {
+    // This payload includes the items we specified earlier
+    console.log(jwt_payload);
+  }));
+};

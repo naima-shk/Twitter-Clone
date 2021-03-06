@@ -1,9 +1,9 @@
 const express = require('express');
 const router= express.Router();
-const passport =require('passport');
+const passport =require('passport-jwt');
 const validateTweetInput=require("../../validation/tweets");
 const Tweet =require("../../Models/Tweet");
-const jwt  = require('jsonwebtoken');
+//const jwt  = require('jsonwebtoken');
 
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a tweet route"});
@@ -17,6 +17,7 @@ router.get('/test', (req,res) =>{
 router.post("/",
 passport.authenticate('jwt',{session:false}),
 (req,res) =>{
+  console.log(req.body)
     const {isValid, errors} = validateTweetInput(req.body);
     if(!isValid){
         return res.status(400).json(errors);
@@ -25,7 +26,7 @@ passport.authenticate('jwt',{session:false}),
       user:req.user.id,
       text:req.body.text
     });
-
+     
     newTweet.save().then(tweet => res.json(tweet));
 })
 module.exports=router;
