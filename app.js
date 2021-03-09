@@ -1,5 +1,5 @@
 const express = require ('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const app= express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
@@ -13,9 +13,9 @@ mongoose
 .catch(err => console.log(err));
 
 //app.use(bodyParser.urlencoded({ 
-  //  extended: false }));
+   // extended: false }));
     
-//app.use(bodyParser.json()); 
+app.use(express.json()); 
 
 /*app.get('/', (req,res) => {
    const newUser = new User({

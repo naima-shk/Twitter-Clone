@@ -15,9 +15,9 @@ router.get('/test', (req,res) =>{
 ) */}
 
 router.post("/",
-passport.authenticate('JWT',{session:false}),
+passport.authenticate("jwt" ,{session:false}),
 (req,res) =>{
-  //console.log(req.body)
+  console.log(req.body)
     const {isValid, errors} = validateTweetInput(req.body);
     if(!isValid){
         return res.status(400).json(errors);
