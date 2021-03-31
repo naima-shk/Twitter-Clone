@@ -26,7 +26,7 @@ module.exports = function (data) {
   }
   /*if (Validator.isEmpty(data.password2)) {
     errors.password = "password field2 is required";
-  }*/
+  */
   if (!Validator.isLength(data.password, { min: 2, max: 30 })) {
     errors.password = "password must be between 2 and 30 char";
   }
