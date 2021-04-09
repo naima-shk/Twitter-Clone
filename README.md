@@ -6,4 +6,5 @@
 # I posted a  question on stack over flow but no one wnswer my query.
 # I have started learning cracking the coding interview book and just went through Big O topic which is about algorithms run time and complexity.
 # I did nothing yesterday and today.. 
+# I just wasted my day while sleeping.
 
