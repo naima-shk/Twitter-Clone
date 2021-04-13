@@ -3,7 +3,7 @@ const router= express.Router();
 const passport =require('passport');
 const validateTweetInput=require("../../validation/tweets");
 const Tweet =require("../../Models/Tweet");
-const jwt  = require('jsonwebtoken');
+
 
 router.get('/test', (req,res) =>{
     res.json({msg:"This is a tweet route"});
