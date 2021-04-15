@@ -12,11 +12,11 @@ router.get('/test', (req,res) =>{
     res.json({msg:"This is a user route"});
 });
 
-router.get("/current", passport.authenticate ("jwt",{session: false}),
+{/*router.get("/current", passport.authenticate ("jwt",{session: false}),
  (req,res) =>{
    res.send(req.user);
  }
-) 
+) */}
 
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
